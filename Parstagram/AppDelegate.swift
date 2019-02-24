@@ -5,6 +5,11 @@
 //  Created by Youngjoon Park on 16/02/2019.
 //  Copyright © 2019 Youngjoon Park. All rights reserved.
 //
+/*
+ * To run on the terminal
+ * parse-dashboard --appId Parstagram --masterKey pyj2025 --serverURL "https://calm-bayou-82916.herokuapp.com/parse"
+ */
+
 
 import UIKit
 import Parse
@@ -29,6 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            
+            window?.rootViewController = feedNavigationController
+        }
         
         return true
     }
